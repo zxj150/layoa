@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>layoa Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<spring.version>5.2.3.RELEASE</spring.version>
 		<mybatis.version>3.5.3</mybatis.version>

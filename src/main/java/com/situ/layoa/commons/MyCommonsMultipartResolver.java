@@ -12,6 +12,7 @@ import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.servlet.ServletRequestContext;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+
 /**
  * 为了解决 PUT 方式上传文件接受不到参数的问题，重写书写 CommonsMultipartResolver 类中的 isMultipart方法。
  * @ClassName:MyCommonsMultipartResolver 
