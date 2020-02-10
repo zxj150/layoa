@@ -15,6 +15,14 @@ public class User implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date userBirth;
 	private Integer userLike;
+	private String userImg;
+	
+	public String getUserImg() {
+		return userImg;
+	}
+	public void setUserImg(String userImg) {
+		this.userImg = userImg;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -48,7 +56,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [userName=" + userName + ", UserAge=" + UserAge + ", userSex=" + userSex + ", userBirth="
-				+ userBirth + ", userLike=" + userLike + "]";
+				+ userBirth + ", userLike=" + userLike + ", userImg=" + userImg + "]";
 	}
 	
 

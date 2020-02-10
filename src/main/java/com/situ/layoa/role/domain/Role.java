@@ -1,7 +1,6 @@
 package com.situ.layoa.role.domain;
 
 import java.io.Serializable;
-
 import org.apache.ibatis.type.Alias;
 
 @Alias("Role")
@@ -13,7 +12,17 @@ public class Role implements Serializable{
 	private String roleName;//角色名称 要求唯一
 	private Integer roleKind;//角色类型 1.超级角色。0.普通角色
 	private String roleInfo;//角色简介
-	
+	public Role() {
+		
+	}
+	public Role(Long rowId, String roleCode, String roleName, Integer roleKind, String roleInfo) {
+		super();
+		this.rowId = rowId;
+		this.roleCode = roleCode;
+		this.roleName = roleName;
+		this.roleKind = roleKind;
+		this.roleInfo = roleInfo;
+	}
 	public Long getRowId() {
 		return rowId;
 	}
