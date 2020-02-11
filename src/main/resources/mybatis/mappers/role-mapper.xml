@@ -6,9 +6,6 @@
 	<sql id="role_base">
 		SELECT ROW_ID,ROLE_CODE,ROLE_NAME,ROLE_KIND,ROLE_INFO FROM TB_ROLE
 	</sql>
-	<sql id="role_base_column">
-		ROW_ID,ROLE_CODE,ROLE_NAME,ROLE_KIND,ROLE_INFO 
-	</sql>
 	
 	<sql id="column_fragement">
 		<if test="roleCode!=null">
@@ -65,19 +62,19 @@
 	<sql id="search_fragement">
 		<if test="searchParam!=null">
 			<if test="searchParam.rowId!=null">
-				AND ROW_ID=#{searchParam.rowId}
+				WHERE ROW_ID=#{searchParam.rowId}
 			</if>
 			<if test="searchParam.roleCode!=null">
-				AND ROLE_CODE=#{searchParam.roleCode}
+				WHERE ROLE_CODE=#{searchParam.roleCode}
 			</if>
 			<if test="searchParam.roleName!=null">
-				AND ROLE_NAME=#{searchParam.roleName}
+				WHERE ROLE_NAME=#{searchParam.roleName}
 			</if>
 			<if test="searchParam.roleKind!=null">
-				AND ROLE_KIND=#{searchParam.roleKind}
+				WHERE ROLE_KIND=#{searchParam.roleKind}
 			</if>
 			<if test="searchParam.roleInfo!=null">
-				AND ROLE_INFO=#{searchParam.roleInfo}
+				WHERE ROLE_INFO=#{searchParam.roleInfo}
 			</if>
 		</if>
 	</sql>

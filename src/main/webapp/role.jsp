@@ -27,7 +27,7 @@
 									<select name="roleKind">
 										<option value>角色类型</option>
 										<option value="1">超级角色</option>
-										<option value="">普通角色</option>
+										<option value="0">普通角色</option>
 									</select>
 								</div>
 								<div class="layui-form-item">
@@ -36,11 +36,11 @@
 								<div class="layui-inline">
 									<!-- 搜索按钮开始 -->
 									<button calss="layui-btn layui-btn-primary layui-btn-sm" lay-submit lay-filter="btn_search">
-										<i class="layui-icon layui-icon-search"></i>
+										<i class="layui-icon layui-icon-search"></i>搜索
 									</button>
 									<!-- 重置按钮 -->
 									<button type="reset" calss="layui-btn layui-btn-primary layui-btn-sm">
-										<i class="layui-icon layui-icon-refresh"></i>
+										<i class="layui-icon layui-icon-refresh"></i>重置
 									</button>
 								</div>
 							</div>
