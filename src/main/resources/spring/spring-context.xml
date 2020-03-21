@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd ">
 	<!-- 启动自动扫描机制 -->
-	<context:component-scan base-package="com.situ.layoa">
+	<context:component-scan base-package="com.situ.user">
 		<!-- Controller层实例的生成 交给SpringMVC去处理 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
@@ -37,7 +37,7 @@
 		<!-- 将数据源 注入进来 -->
 		<property name="dataSource" ref="dataSource" />
 		<!-- 配置需要生成别名的类的包名，会去进行扫描，并生成别名。 -->
-		<property name="typeAliasesPackage" value="com.situ.layoa" />
+		<property name="typeAliasesPackage" value="com.situ.user" />
 		<!-- 配置Mybatis的配置文件 -->
 		<property name="configLocation" value="classpath:mybatis/mybaits-config.xml" />
 		<!-- 配置Mybatis的映射文件 -->
@@ -47,7 +47,7 @@
 	<!-- 使用 MapperScannerConfigurer,将 会 查 找 类 路 径 下 的 映 射 器 并 自 动 将 它 们 创 建 成 MapperFactoryBean -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 配置要Scanner的基本包名 -->
-		<property name="basePackage" value="com.situ.layoa" />
+		<property name="basePackage" value="com.situ.user" />
 		<!-- 配置要处理的annotation -->
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 	</bean>

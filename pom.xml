@@ -35,7 +35,7 @@
 			<version>${jackson.version}</version>
 		</dependency>
 		<!-- SPRING END -->
-		<!-- MYBATIS BEGIN -->
+		<!-- MYBATIS BEGIN-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>

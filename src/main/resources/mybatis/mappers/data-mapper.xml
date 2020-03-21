@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.user.data.dao.DataDao">
+<sql id="data_base">
+		SELECT ROW_ID,USER_NAME,DATA1,ACTIVE_FLAG,CREATE_DATE FROM TB_DATA
+	</sql>
+	<insert id="save" parameterType="Data" useGeneratedKeys="true" keyProperty="rowId" keyColumn="ROW_ID">
+		INSERT INTO TB_DATA (USER_NAME,DATA1,ACTIVE_FLAG,CREATE_BY,CREATE_DATE) VALUES (#{userName},#{data1},#{activeFlag},#{createBy},#{createDate})
+	</insert>
+	<select id="getCount" resultType="java.lang.Integer">
+		SELECT COUNT(ROW_ID)FROM TB_DATA
+		<include refid="search_fragement"/>
+	</select>
+	<select id="findByPage" resultType="Data">
+		<include refid="data_base" />
+		<include refid="search_fragement" />
+		LIMIT #{pagination.firstResult},#{pagination.maxResults}
+	</select>
+		<select id="findByPage2" resultType="Data">
+		SELECT ROW_ID,USER_NAME,DATA1,ACTIVE_FLAG,CREATE_DATE FROM TB_DATA WHERE USER_NAME=#{userName}
+		<!-- 引入多条件查询的语句 -->
+		<include refid="search_fragement" />
+		<!-- 执行分页的语句 -->
+		LIMIT #{pagination.firstResult},#{pagination.maxResults}
+	</select>
+	<select id="getCount2" resultType="java.lang.Integer">
+		SELECT COUNT(ROW_ID) FROM TB_DATA WHERE ACTIVE_FLAG = 1 AND USER_NAME=#{userName}
+		<!-- 引入多条件查询的语句 -->
+		<include refid="search_fragement" />
+	</select>
+	<sql id="search_fragement">
+		<if test="searchParam!=null">
+			<if test="searchParam.rowId!=null">
+				WHERE ROW_ID=#{searchParam.rowId}
+			</if>
+			<if test="searchParam.data1!=null">
+				WHERE DATA1=#{searchParam.data1}
+			</if>
+			<if test="searchParam.userName!=null">
+				WHERE USER_NAME=#{searchParam.userName}
+			</if>
+		</if>
+	</sql>
+		<delete id="delete">
+		DELETE FROM TB_DATA WHERE ROW_ID = #{rowId}
+	</delete>
+	</mapper>

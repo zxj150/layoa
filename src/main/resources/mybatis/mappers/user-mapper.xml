@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.user.role.dao.UserDao">
+	<sql id="user_base">
+		SELECT ROW_ID,USER_NAME,USER_AGE,USER_KIND,USER_CODE,USER_PASS,USER_CARD,PROVINCE_CODE,CITY_CODE,AREA_CODE,ACTIVE_FLAG FROM TB_USER
+	</sql>
+	<insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="rowId" keyColumn="ROW_ID">
+		INSERT INTO TB_USER (USER_NAME,USER_AGE,USER_KIND,USER_CODE,USER_PASS,USER_CARD,PROVINCE_CODE,CITY_CODE,AREA_CODE,ACTIVE_FLAG,CREATE_BY,CREATE_DATE) VALUES (#{userName},#{userAge},#{userKind},#{userCode},#{userPass},#{userCard},#{provinceCode},#{cityCode},#{areaCode},#{activeFlag},#{createBy},#{createDate})
+	</insert>
+	<select id="findByCodeAndPass" resultType="User">
+		SELECT ROW_ID,USER_NAME,USER_AGE,USER_KIND,USER_CODE,USER_PASS,USER_CARD,PROVINCE_CODE,CITY_CODE,AREA_CODE,ACTIVE_FLAG FROM TB_USER
+		WHERE USER_CODE = #{userCode} AND USER_PASS=#{userPass}
+	</select>
+	<select id="findByUserCode" resultType="User">
+		SELECT ROW_ID,USER_NAME,USER_AGE,USER_KIND,USER_CODE,USER_PASS,USER_CARD,PROVINCE_CODE,CITY_CODE,AREA_CODE,ACTIVE_FLAG FROM TB_USER
+		WHERE USER_CODE = #{userCode}
+	</select>
+</mapper>
